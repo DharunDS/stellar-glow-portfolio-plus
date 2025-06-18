@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Github, Linkedin, Mail, Phone, MapPin, Download, ExternalLink, Code, Palette, Zap, Users, Star, Award, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Download, ExternalLink, Code, Palette, Zap, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -79,10 +79,7 @@ const Index = () => {
   ];
 
   const stats = [
-    { icon: Star, value: '50+', label: 'Projects Completed' },
-    { icon: Users, value: '30+', label: 'Happy Clients' },
-    { icon: Award, value: '5+', label: 'Years Experience' },
-    { icon: Coffee, value: '1000+', label: 'Cups of Coffee' }
+    { icon: Star, value: '50+', label: 'Projects Completed' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -201,7 +198,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto"
+            className="flex justify-center mb-12 max-w-4xl mx-auto"
           >
             {stats.map((stat, index) => (
               <motion.div
