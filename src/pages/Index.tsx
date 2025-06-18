@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Github, Linkedin, Mail, Phone, MapPin, Download, ExternalLink, Code, Palette, Zap, Star } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Download, ExternalLink, Code, Palette, Zap, Rocket, Globe, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -79,7 +80,10 @@ const Index = () => {
   ];
 
   const stats = [
-    { icon: Star, value: '50+', label: 'Projects Completed' }
+    { icon: Code, value: '15+', label: 'Technologies Mastered', color: 'from-purple-400 to-purple-600' },
+    { icon: Rocket, value: '99.9%', label: 'Uptime Performance', color: 'from-green-400 to-green-600' },
+    { icon: Globe, value: '25+', label: 'Global Clients', color: 'from-blue-400 to-blue-600' },
+    { icon: Sparkles, value: '5+', label: 'Years Experience', color: 'from-pink-400 to-pink-600' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -193,30 +197,36 @@ const Index = () => {
             </motion.p>
           </motion.div>
           
-          {/* Stats Section */}
+          {/* Enhanced Stats Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex justify-center mb-12 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10"
+                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 group"
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                <stat.icon className="h-8 w-8 text-purple-400 mx-auto mb-3" />
                 <motion.div
-                  className="text-2xl md:text-3xl font-bold text-white mb-1"
+                  className={`h-12 w-12 bg-gradient-to-br ${stat.color} rounded-xl mx-auto mb-3 flex items-center justify-center`}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <stat.icon className="h-6 w-6 text-white" />
+                </motion.div>
+                <motion.div
+                  className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.7 + index * 0.1, type: "spring" }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-white/70 text-sm">{stat.label}</div>
+                <div className="text-white/70 text-sm font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
